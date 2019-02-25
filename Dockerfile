@@ -23,7 +23,7 @@ RUN apt-get update  && \
 	#备份
 	cp -rf /data/* /databak/  && \
 	chmod +x /databak/release/www/calibre.talebook.org/my-calibre-webserver/start.sh  && \
-	/usr/bin/supervisord
+	#/usr/bin/supervisord
 
 EXPOSE 8000
 
