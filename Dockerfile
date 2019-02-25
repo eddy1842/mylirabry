@@ -8,10 +8,13 @@ RUN apt-get update  && \
 	mkdir -p /data/log/  && \
 	mkdir -p /data/books/  && \
 	mkdir -p /data/release/www/calibre.talebook.org/  && \
-	mkdir /data/books/{library,extract,upload,convert,progress}  && \
+	mkdir -p /data/books/library  && \
+	mkdir -p /data/books/extract  && \
+	mkdir -p /data/books/upload  && \
+	mkdir -p /data/books/convert  && \
+	mkdir -p /data/books/progress  && \
 	cd /data/release/www/calibre.talebook.org/  && \
 	git clone https://github.com/oldiy/my-calibre-webserver.git  && \
-	#添加至少24本书后创建书库
 	calibredb add --library-path=/data/books/library/  -r  /data/release/www/calibre.talebook.org/my-calibre-webserver/conf/book/  && \
 	python /data/release/www/calibre.talebook.org/my-calibre-webserver/server.py --syncdb  && \
 	cp /data/release/www/calibre.talebook.org/my-calibre-webserver/conf/supervisor/calibre-webserver.conf /etc/supervisor/conf.d/  && \
