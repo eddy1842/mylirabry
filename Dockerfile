@@ -4,7 +4,7 @@ MAINTAINER oldiy <oldiy2018@gmail.com>
 ENV VERSION 2.18
 
 RUN apt-get update  && \
-	apt-get install calibre python-pip unzip supervisor sqlite3 git bash -y  && \
+	apt-get install calibre python-pip unzip supervisor sqlite3 git -y  && \
 	pip install jinja2 social-auth-app-tornado social-auth-storage-sqlalchemy tornado Baidubaike  && \
 	mkdir -p /databak/  && \
 	mkdir -p /data/log/  && \
@@ -20,6 +20,8 @@ RUN apt-get update  && \
 	cp -rf /data/* /databak/  && \
 	chmod +x /databak/release/www/calibre.talebook.org/my-calibre-webserver/start.sh  && \
 	#/usr/bin/supervisord
+
+RUN apt-get install bash -y
 
 EXPOSE 8000
 
