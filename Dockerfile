@@ -16,7 +16,7 @@ RUN apt-get update  && \
 	python /data/release/www/calibre.talebook.org/my-calibre-webserver/server.py --syncdb  && \
 	cp /data/release/www/calibre.talebook.org/my-calibre-webserver/conf/supervisor/calibre-webserver.conf /etc/supervisor/conf.d/  && \
 	cp -rf /data/* /databak/  && \
-	chmod +x /databak/release/www/calibre.talebook.org/my-calibre-webserver/start.sh  && \
+	chmod +x /databak/release/www/calibre.talebook.org/my-calibre-webserver/start.sh
 	#/usr/bin/supervisord
 
 RUN apt-get install bash -y
