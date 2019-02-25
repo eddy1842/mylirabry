@@ -1,5 +1,5 @@
 #!/bin/sh
 if [ ! -d "/data/release" ]; then
-  cp /databak/* /data/
+  cp -rf /databak/* /data/
 fi
-supervisorctl reload all
+/usr/bin/supervisord
