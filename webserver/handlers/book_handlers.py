@@ -406,8 +406,8 @@ class BookRead(BaseHandler):
                 plumber.run()
             except Exception as e:
                 progress_file.write(u"\n%s\n" % e)
-                progress_file.write(u"\n服务器处理异常，请在QQ群里联系管理员。\n[FINISH]")
-                self.add_msg("danger", u'文件格式转换失败，请在QQ群里联系管理员.')
+                progress_file.write(u"\n服务器处理异常，请联系管理员。\n[FINISH]")
+                self.add_msg("danger", u'文件格式转换失败，请联系管理员.')
                 return
             self.db.add_format(book['id'], new_fmt, open(new_path, "rb"), index_is_id=True)
             fpath = new_path
@@ -466,8 +466,8 @@ class BookPush(BaseHandler):
             plumber.run()
         except Exception as e:
             progress_file.write("\n%s\n" % e)
-            progress_file.write(u"\n服务器处理异常，请在QQ群里联系管理员。\n[FINISH]")
-            self.add_msg("danger", u'文件格式转换失败，请在QQ群里联系管理员.')
+            progress_file.write(u"\n服务器处理异常，请联系管理员。\n[FINISH]")
+            self.add_msg("danger", u'文件格式转换失败，请联系管理员.')
             return
         self.db.add_format(book['id'], fmt, open(fpath, "rb"), index_is_id=True)
         if mail_to:
@@ -489,8 +489,8 @@ class BookPush(BaseHandler):
         fdata = open(fpath).read()
 
         mail_from = settings['smtp_username']
-        mail_subject = _('奇异书屋：推送给您一本书《%(title)s》') % vars()
-        mail_body = _(u'为您奉上一本《%(title)s》, 欢迎常来访问奇异书屋！http://www.talebook.org' % vars())
+        mail_subject = _('图书管理系统：推送给您一本书《%(title)s》') % vars()
+        mail_body = _(u'为您奉上一本《%(title)s》, 欢迎使用图书管理系统' % vars())
         status = msg = ""
         try:
             logging.info('send %(title)s to %(mail_to)s' % vars())
