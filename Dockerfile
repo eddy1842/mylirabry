@@ -14,7 +14,7 @@ RUN apt-get update
 	cd /data/release/www/calibre.talebook.org/
 	git clone https://github.com/oldiy/my-calibre-webserver.git
 	#备份
-	cp /data/* /databak/
+	cp -rf /data/* /databak/
 	#添加至少24本书后创建书库
 	calibredb add --library-path=/data/books/library/  -r  /data/release/www/calibre.talebook.org/my-calibre-webserver/conf/book/
 	#创建数据库
@@ -24,12 +24,10 @@ RUN apt-get update
 	cp /data/release/www/calibre.talebook.org/my-calibre-webserver/conf/supervisor/calibre-webserver.conf /etc/supervisor/conf.d/
 	/usr/bin/supervisord
 
-COPY start.sh /conf-copy/
+RUN chmod +x /data/release/www/calibre.talebook.org/my-calibre-webserver/start.sh
 
-RUN chmod +x data/release/www/calibre.talebook.org/my-calibre-webserver/start.sh
+EXPOSE 8000
 
-EXPOSE 5000
-WORKDIR /
-VOLUME ["/var/www/html/conf"]
+VOLUME ["/data"]
 
 CMD ["/data/release/www/calibre.talebook.org/my-calibre-webserver/start.sh"]
