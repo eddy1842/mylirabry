@@ -14,7 +14,7 @@ RUN apt-get update  && \
 	cd /data/release/www/calibre.talebook.org/  && \
 	git clone https://github.com/oldiy/my-calibre-webserver.git  && \
 	#添加至少24本书后创建书库
-	calibredb add --library-path=/data/books/library/  -r  /data/release/www/calibre.talebook.org/my-calibre-webserver/conf/book/  && \
+	calibredb add --library-path=/data/books/library/ -r /data/release/www/calibre.talebook.org/my-calibre-webserver/conf/book/ && \
 	#创建数据库
 	python /data/release/www/calibre.talebook.org/my-calibre-webserver/server.py --syncdb  && \
 	#修改user_handlers.py为单机版
