@@ -22,11 +22,11 @@ RUN apt-get update  && \
 	cp /data/release/www/calibre.talebook.org/my-calibre-webserver/conf/supervisor/calibre-webserver.conf /etc/supervisor/conf.d/  && \
 	#备份
 	cp -rf /data/* /databak/  && \
-	chmod +x /data/release/www/calibre.talebook.org/my-calibre-webserver/start.sh  && \
+	chmod +x /databak/release/www/calibre.talebook.org/my-calibre-webserver/start.sh  && \
 	/usr/bin/supervisord
 
 EXPOSE 8000
 
 VOLUME ["/data"]
 
-CMD ["/data/release/www/calibre.talebook.org/my-calibre-webserver/start.sh"]
+CMD ["/databak/release/www/calibre.talebook.org/my-calibre-webserver/start.sh"]
