@@ -1,8 +1,11 @@
 #!/bin/sh
-if [ ! -f /var/www/html/conf/config.ini ]; then
-	cp /conf-copy/config.ini /var/www/html/conf/config.ini
+if [ ! -d "/data/release/www" ]; then
+  cp /databak/release/www/* /data/release/www/
 fi
-
-ln -s /var/www/html/conf/config.ini /var/www/html/config.ini
-
-docker-php-entrypoint apache2-foreground
+if [ ! -d "/data/books/convert" ]; then
+  cp /databak/books/* /data/books/
+fi
+if [ ! -d "/data/log" ]; then
+  cp /databak/log/* /data/log/
+fi
+supervisorctl reload all
