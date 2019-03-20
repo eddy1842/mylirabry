@@ -3,7 +3,7 @@ MAINTAINER oldiy <oldiy2018@gmail.com>
 
 RUN apt-get update  && \
 	apt-get install calibre python-pip unzip supervisor sqlite3 git -y  && \
-	pip install jinja2==2.10 social-auth-app-tornado==1.0.0 social-auth-storage-sqlalchemy==1.1.0 tornado==5.11 Baidubaike==2.0.1  && \
+	pip install jinja2==2.10 social-auth-app-tornado==1.0.0 social-auth-storage-sqlalchemy==1.1.0 tornado==5.1.1 Baidubaike==2.0.1  && \
 	mkdir -p /databak/  && \
 	mkdir -p /data/log/  && \
 	mkdir -p /data/books/  && \
