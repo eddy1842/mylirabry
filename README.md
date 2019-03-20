@@ -1,5 +1,4 @@
-
-#My-calibre-webserver-docker
+# My-calibre-webserver-docker
 
 [![Docker Pulls](https://img.shields.io/docker/pulls/oldiy/my-calibre-webserver-docker.svg)][dockerhub] 
 
@@ -19,7 +18,9 @@
 
 + 加入我的Telegram讨论组 [[Join](https://t.me/joinchat/H3IoGkcnW6BGo51EJ9Kw5g)]
 
-- Docker默认为单机版，如果需要多用户版，请参考[安装文档](https://github.com/oldiy/my-calibre-webserver/blob/master/docs/INSTALL.zh_CN.md)进行修改，如果需要Kindel推送，需要设置smtp后重启容器才可以使用！
+- Docker默认为单机版tag：latest，如果需要多用户版可以使用tag：multi-user，其他问题请参考[安装文档](https://github.com/oldiy/my-calibre-webserver/blob/master/docs/INSTALL.zh_CN.md)进行修改，如果需要Kindel推送，需要设置smtp后重启容器才可以使用！
+
+- 更新支持github登录
 
 - 演示地址 [[ 奇艺书屋 ](https://www.talebook.org)]
 
