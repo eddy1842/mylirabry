@@ -18,7 +18,7 @@ settings = {
     "user_database" : 'sqlite:////data/books/develop.db',
 
     # Set this if you don't need any user management
-    "auto_login"    : 1,
+    #"auto_login"    : 1,
 
     "SOCIAL_AUTH_LOGIN_URL"          : '/',
     "SOCIAL_AUTH_LOGIN_REDIRECT_URL" : '/done/',
@@ -33,6 +33,7 @@ settings = {
     'smtp_server'                      : "smtp.talebook.org",
     'smtp_username'                    : "sender@talebook.org",
     'smtp_password'                    : "password",
+    'douban_apikey'                    : "default-apikey",
 
     # See: http://open.weibo.com/developers
     'SOCIAL_AUTH_WEIBO_KEY'            : '',
@@ -46,4 +47,10 @@ settings = {
     'SOCIAL_AUTH_GITHUB_KEY'           : '',
     'SOCIAL_AUTH_GITHUB_SECRET'        : '',
 }
+
+try:
+    import local_settings
+    settings.update(local_settings.settings)
+except:
+    pass
 
