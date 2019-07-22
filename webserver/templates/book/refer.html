@@ -1,6 +1,6 @@
 
 {% if books %}
-<p>请选择最匹配的记录复制为本书的描述信息</p>
+<p>請選擇最匹配的記錄複製為本書的描述信息</p>
 <style>.refer .comments {height: 100px; overflow: hidden; text-overflow: ellipsis; }</style>
 <table class='table refer'>
     {% for book in books %}
@@ -21,12 +21,12 @@
 
         <td style='vertical-align: middle; padding: 8px 0px;'>
             <form class="form-horizontal" role="form" action="/book/{{book_id}}/refer/set/{{book.isbn}}" method="POST">
-                <button type="submit" class="btn btn-sm btn-success">设置</button>
+                <button type="submit" class="btn btn-sm btn-success">設置</button>
             </form>
         </td>
     </tr>
     {% endfor %}
 </table>
 {% else %}
-<p>暂未搜索到相关条目</p>
+<p>暫未搜索到相關條目</p>
 {% endif %}
