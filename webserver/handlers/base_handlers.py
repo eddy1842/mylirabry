@@ -43,7 +43,7 @@ def website_format(value):
             douban_id = link.split("//")[-1]
             links.append( u"<a target='_blank' href='https://book.douban.com/isbn/%s/'>豆瓣</a> " % douban_id )
         elif link.startswith("http://"):
-            links.append( u"<a target='_blank' href='%s'>参考链接</a> " % link )
+            links.append( u"<a target='_blank' href='%s'>參考鏈接</a> " % link )
     return ";".join(links)
 
 
@@ -139,11 +139,11 @@ class BaseHandler(web.RequestHandler):
         user.save()
 
     def get_template_path(self):
-        """ 获取模板路径 """
+        """ 獲取模板路徑 """
         return self.settings.get('template_path', 'templates')
 
     def create_template_loader(self, template_path):
-        """ 根据template_path创建相对应的Jinja2 Environment """
+        """ 根據template_path創建相對應的Jinja2 Environment """
         temp_path = template_path
         if isinstance(template_path, (list, tuple)):
             temp_path = template_path[0]
@@ -213,7 +213,7 @@ class BaseHandler(web.RequestHandler):
     def get_book(self, book_id):
         books = self.get_books(ids=[int(book_id)])
         if not books:
-            raise web.HTTPError(404, reason = _(u"抱歉，这本书不存在") )
+            raise web.HTTPError(404, reason = _(u"抱歉，這本書不存在") )
         return books[0]
 
     def is_book_owner(self, book_id, user_id):
