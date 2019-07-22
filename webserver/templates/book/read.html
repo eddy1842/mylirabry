@@ -55,7 +55,7 @@
     <body>
         <nav class="navbar" role="banner"></nav>
         <div id="app-container">
-        <p class="text-center" id="msg">正在加载书籍</p>
+        <p class="text-center" id="msg">正在加載書籍</p>
         <pre id="progress"></pre>
         </div>
 
@@ -102,17 +102,17 @@
                 load_progress();
                 window.check_count -= 1;
                 if ( window.check_count < 1 ) {
-                    $("#msg").html("系统异常，请在QQ群里联系管理员");
+                    $("#msg").html("系統異常，請在QQ群裡聯繫管理員");
                     return;
                 }
                 $.ajax({
                     url: epub_url + "/META-INF/container.xml?"+Math.random(),
                     success: function(data) {
-                        $("#msg").html("解压完毕，正在打开阅读界面");
+                        $("#msg").html("解壓完畢，正在打開閱讀界面");
                         start_reader();
                     },
                     error: function(xhr) {
-                        $("#msg").html("首次阅读，服务器正在解压书籍，请等待约2分钟<br>"+window.check_count);
+                        $("#msg").html("首次閱讀，服務器正在解壓書籍，請等待約2分鐘<br>"+window.check_count);
                         setTimeout(function(){ check_ready() }, 1000);
                     }
                 });
