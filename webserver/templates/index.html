@@ -1,11 +1,11 @@
 {% extends "base.html" %}
 {% block title %}
-<title>图书管理系统</title>
+<title>圖書管理系統</title>
 {% endblock %}
 
 {% block content %}
 <div class="hidden-xs">
-<span class="legend" >随便推荐</span>
+<span class="legend" >隨便推薦</span>
 <div class="row hidden-xs">
     {% for book in random_books %}
     <div class="col-xs-6 col-sm-3" style='padding: 0px'>
@@ -52,7 +52,7 @@
 </div>
 </div>
 
-<span class="legend">新书推荐</span>
+<span class="legend">新書推薦</span>
 <div class="row">
     {% for book in new_books %}
     <div class="col-sm-6">
@@ -64,7 +64,7 @@
                 <a target="_blank" href="/author/{{book.author_sort|urlencode}}">{{book.authors|join(", ")}}</a>
                 {% if book.publisher %}/ <a target="_blank" href="/pub/{{book.publisher|urlencode}}">{{book.publisher}}</a>{%endif%}
                 <br/>
-                {% if book.comments %}{{book.comments|striptags}}{%else%}点击浏览详情{%endif%}
+                {% if book.comments %}{{book.comments|striptags}}{%else%}點擊瀏覽詳情{%endif%}
                 </p>
             </div>
             <div>
@@ -83,8 +83,8 @@
 {% endblock %}
 
 {% block meta %}
-<meta name="Keywords" content="在线 电子书 下载 推送 kindle epub mobi" />
-<meta name="description" content="这是个安静读书的地方。在线阅读Epub/Mobi/Pdf/Azw3等格式的电子书，也支持下载或推送到Kindle设备里。" />
+<meta name="Keywords" content="在線 電子書 下載 推送 kindle epub mobi" />
+<meta name="description" content="這是個安靜讀書的地方。在線閱讀Epub/Mobi/Pdf/Azw3等格式的電子書，也支持下載或推送到Kindle設備裡。" />
 {% endblock %}
 
 {% block script %}
