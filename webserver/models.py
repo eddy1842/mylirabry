@@ -60,7 +60,7 @@ class Reader(Base, SQLAlchemyMixin):
 
     def init_default_user(self):
         class DefaultUserInfo:
-            extra_data = {'username': _(u'默认用户')}
+            extra_data = {'username': _(u'默認用戶')}
         self.init(DefaultUserInfo())
 
     def init(self, social_user):
