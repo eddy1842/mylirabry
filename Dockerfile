@@ -15,12 +15,12 @@ RUN apt-get update  && \
 	mkdir -p /data/books/progress  && \
 	cd /data/release/www/calibre.talebook.org/  && \
 	git clone https://github.com/eddy1842/mylirabry.git  && \
-	calibredb add --library-path=/data/books/library/  -r  /data/release/www/calibre.talebook.org/my-calibre-webserver/conf/book/  && \
-	python /data/release/www/calibre.talebook.org/my-calibre-webserver/server.py --syncdb  && \
-	cp /data/release/www/calibre.talebook.org/my-calibre-webserver/conf/supervisor/calibre-webserver.conf /etc/supervisor/conf.d/  && \
+	calibredb add --library-path=/data/books/library/  -r  /data/release/www/calibre.talebook.org/mylirabry/conf/book/  && \
+	python /data/release/www/calibre.talebook.org/mylirabry/server.py --syncdb  && \
+	cp /data/release/www/calibre.talebook.org/mylirabry/conf/supervisor/calibre-webserver.conf /etc/supervisor/conf.d/  && \
 	cp -rf /data/* /databak/  && \
-	rm -rf /data/release/www/calibre.talebook.org/my-calibre-webserver/webserver/*.pyc  && \
-	chmod +x /databak/release/www/calibre.talebook.org/my-calibre-webserver/start.sh
+	rm -rf /data/release/www/calibre.talebook.org/mylirabry/webserver/*.pyc  && \
+	chmod +x /databak/release/www/calibre.talebook.org/mylirabry/start.sh
 	#/usr/bin/supervisord
 
 RUN apt-get install bash -y
