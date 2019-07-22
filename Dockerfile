@@ -14,7 +14,7 @@ RUN apt-get update  && \
 	mkdir -p /data/books/convert  && \
 	mkdir -p /data/books/progress  && \
 	cd /data/release/www/calibre.talebook.org/  && \
-	git clone https://github.com/oldiy/my-calibre-webserver.git  && \
+	git clone https://github.com/eddy1842/mylirabry.git  && \
 	calibredb add --library-path=/data/books/library/  -r  /data/release/www/calibre.talebook.org/my-calibre-webserver/conf/book/  && \
 	python /data/release/www/calibre.talebook.org/my-calibre-webserver/server.py --syncdb  && \
 	cp /data/release/www/calibre.talebook.org/my-calibre-webserver/conf/supervisor/calibre-webserver.conf /etc/supervisor/conf.d/  && \
