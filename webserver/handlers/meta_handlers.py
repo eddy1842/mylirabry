@@ -9,7 +9,7 @@ from calibre.utils.filenames import ascii_filename
 
 class TagList(ListHandler):
     def get(self):
-        title = u'全部标签'
+        title = u'全部標籤'
         category = "tags"
         tags = self.all_tags_with_count()
         hot_tags = []
@@ -22,7 +22,7 @@ class TagList(ListHandler):
 
 class TagBooks(ListHandler):
     def get(self, name):
-        title = _(u'含有"%(name)s"标签的书籍') % vars()
+        title = _(u'含有"%(name)s"標籤的書籍') % vars()
         category = "tags"
         books = self.get_item_books(category, name)
         return self.render_book_list(books, vars());
@@ -38,7 +38,7 @@ class AuthorList(ListHandler):
 
 class AuthorBooks(ListHandler):
     def get(self, name):
-        title = _(u'%(name)s编著的书籍') % vars()
+        title = _(u'%(name)s編著的書籍') % vars()
         category = "authors"
         books = self.get_item_books(category, name)
         return self.render_book_list(books, vars());
@@ -52,7 +52,7 @@ class PubList(ListHandler):
 
 class PubBooks(ListHandler):
     def get(self, name):
-        title = _(u'%(name)s出版的书籍') % vars()
+        title = _(u'%(name)s出版的書籍') % vars()
         category = "publisher"
         books = self.get_item_books(category, name)
         return self.render_book_list(books, vars());
@@ -82,7 +82,7 @@ class PubBooksUpdate(ListHandler):
 
 class RatingList(ListHandler):
     def get(self):
-        title = u'全部评分'
+        title = u'全部評分'
         category = "rating"
         ratings = self.cache.get_id_map(category).items()
         ratings.sort(cmp=lambda x,y: cmp(x[1], y[1]))
@@ -90,7 +90,7 @@ class RatingList(ListHandler):
 
 class RatingBooks(ListHandler):
     def get(self, name):
-        title = _('评分为%(name)s星的书籍') % vars()
+        title = _('評分為%(name)s星的書籍') % vars()
         category = "rating"
         books = self.get_item_books(category, int(name))
         return self.render_book_list(books, vars());
