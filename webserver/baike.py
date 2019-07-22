@@ -37,11 +37,11 @@ class BaiduBaikeApi:
         print "\n".join( "%s:\t%s" % v for v in info.items())
 
         mi = Metadata(info['title'])
-        plat = "网络小说平台"
-        plat = info.get(u'首发状态', plat)
-        plat = info.get(u'首发网站', plat)
-        plat = plat.replace(u'首发', '')
-        mi.publisher = info.get(u'连载平台', plat)
+        plat = "網絡小說平台"
+        plat = info.get(u'首發狀態', plat)
+        plat = info.get(u'首發網站', plat)
+        plat = plat.replace(u'首發', '')
+        mi.publisher = info.get(u'連載平台', plat)
         mi.authors   = [ info.get(u'作者', u'佚名') ]
         mi.author_sort = mi.authors[0]
         mi.isbn      = BAIKE_ISBN
@@ -58,8 +58,8 @@ class BaiduBaikeApi:
             img_fmt = mi.cover_url.split(".")[-1]
             mi.cover_data = (img_fmt, img)
 
-        if u'完结' in info.get(u'连载状态', ""):
-            day = re.findall('\d*-\d*-\d*', info[u'连载状态'])
+        if u'完結' in info.get(u'連載狀態', ""):
+            day = re.findall('\d*-\d*-\d*', info[u'連載狀態'])
             try: mi.pubdate = datetime.datetime.strptime(day[0], '%Y-%m-%d')
             except: pass
         return mi
@@ -69,6 +69,6 @@ if __name__ == '__main__':
     logging.basicConfig(level=logging.DEBUG)
     api = BaiduBaikeApi()
     print api.get_book(u'法神重生')
-    print api.get_book(u'开放的智力：知乎采铜自选集')
+    print api.get_book(u'開放的智力：知乎采銅自選集')
 
 
