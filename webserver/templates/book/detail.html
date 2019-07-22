@@ -3,8 +3,8 @@
 <div id="id_edit_tip" class="hidden col-md-12">
     <div class="alert alert-warning alert-dismissible" role="alert">
         <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span></button>
-        <strong>您已进入编辑模式！</strong>
-        <p>双击书籍标题（或其他标红字段），即可编辑；编辑完毕后会自动保存。</p>
+        <strong>您已進入編輯模式！</strong>
+        <p>雙擊書籍標題（或其他標紅字段），即可編輯；編輯完畢後會自動保存。</p>
     </div>
 </div>
 {% endblock %}
@@ -49,39 +49,39 @@
                 {% endif %}
 
                 {% if book.language %}
-                <span class="field-name">语言：</span>
+                <span class="field-name">語言：</span>
                 <span class="book-edit" data-meta="language">{{book.language}}</span><br/>
                 {% endif %}
 
                 <span class="field-name">ISBN： </span>
                 <span class="book-edit" data-meta="isbn">
-                {% if book.isbn %} {{book.isbn}} {% else %} 暂无 {% endif %}
+                {% if book.isbn %} {{book.isbn}} {% else %} 暫無 {% endif %}
                 </span><br/>
 
-                <span class="field-name">链接：</span>
+                <span class="field-name">鏈接：</span>
                 {% if book.website %}
                 <span >{{book.website|website|safe}}</span><br/>
                 {% elif book.isbn %}
                 <span ><a target="_blank" href="https://book.douban.com/isbn/{{book.isbn}}/">豆瓣</a></span><br/>
                 {% else %}
-                暂无<br/>
+                暫無<br/>
                 {% endif %}
 
-                <span class="field-name">热度：</span>
+                <span class="field-name">熱度：</span>
                 <span >{{book.count_visit}} 分</span><br/>
 
-                <span class="field-name">下载：</span>
+                <span class="field-name">下載：</span>
                 <span >{{book.count_download}} 次</span><br/>
 
-                <span class="field-name">评分：</span>
-                {% if book.rating %} {{book.rating}} 分 {% else %} 暂无评分 {% endif %}
+                <span class="field-name">評分：</span>
+                {% if book.rating %} {{book.rating}} 分 {% else %} 暫無評分 {% endif %}
                 <span style="display: inline-block;font-size:65%"><input type="number" class="rating"
                     onchange="update_rating(this, {{book.id}})"
                     value="{%if book.rating%}{{book.rating}}{%endif%}"
                     data-min=0 data-max=10 data-size="xs" ></span><br/>
 
                 {% if book.tags %}
-                <span class="field-name">标签：</span>
+                <span class="field-name">標籤：</span>
                 <span class="hidden book-edit" data-meta="tags">{{book.tags|join(" / ")}}</span>
                 <span id="id_tags" class="meta-link">
                 {% for tag in book.tags %}
@@ -97,11 +97,11 @@
         </div>
         <p>&nbsp;</p>
 
-        <span class="legend">简介</span>
+        <span class="legend">簡介</span>
         {% if book.comments %}
         <p id="book-comments" class="book-edit" style="text-indent:2em;" data-meta="comments">{{book.comments|replace("\n", "<br/>")}}</p>
         {% else %}
-        <p id="book-comments" class="book-edit" style="text-indent:2em;" data-meta="comments">暂无简介</p>
+        <p id="book-comments" class="book-edit" style="text-indent:2em;" data-meta="comments">暫無簡介</p>
         {% endif %}
         <p>&nbsp;</p>
     </div>
@@ -120,26 +120,26 @@
         {% endif %}
     </div>
 
-    <span class="legend">阅读</span>
+    <span class="legend">閱讀</span>
     <div class="list-group">
-        <a class="list-group-item" rel="nofollow" target="_blank" href="/book/{{book.id}}/read"><span class="glyphicon glyphicon-book"></span> 在线阅读</a>
+        <a class="list-group-item" rel="nofollow" target="_blank" href="/book/{{book.id}}/read"><span class="glyphicon glyphicon-book"></span> 在線閱讀</a>
         {% for format, size in sizes %}
         <a rel="nofollow" href="/book/{{book.id}}.{{format}}" class="list-group-item"><span class="glyphicon glyphicon-save"></span> <span class="badge">{{size//1024}} KB</span> {{format}}</a>
         {% endfor %}
     </div>
 
     {% if book.is_owner %}
-    <span class="legend">编辑</span>
+    <span class="legend">編輯</span>
     <div class="list-group">
-        <a href="#" class="list-group-item" onclick="return book_choose_refer({{book.id}});"><span class="glyphicon glyphicon-refresh"></span> <span class="badge">Douban</span> 更新书籍信息</a>
+        <a href="#" class="list-group-item" onclick="return book_choose_refer({{book.id}});"><span class="glyphicon glyphicon-refresh"></span> <span class="badge">Douban</span> 更新書籍信息</a>
         {% if request.user.admin %}
-        <a href="#" onclick="return bind_book_editable({{book.id}})" class="list-group-item"><span class="glyphicon glyphicon-cog"></span> 手动编辑</a>
+        <a href="#" onclick="return bind_book_editable({{book.id}})" class="list-group-item"><span class="glyphicon glyphicon-cog"></span> 手動編輯</a>
         {% endif %}
     </div>
 
     <span class="legend">管理</span>
     <div class="list-group">
-        <a rel="nofollow" href="/book/{{book.id}}/delete" class="btn btn-danger btn-block"><span class="glyphicon glyphicon-remove"></span> 删除</a>
+        <a rel="nofollow" href="/book/{{book.id}}/delete" class="btn btn-danger btn-block"><span class="glyphicon glyphicon-remove"></span> 刪除</a>
     </div>
     {% endif %}
 </div>
@@ -147,7 +147,7 @@
 <div class="col-md-12">
     <span class="legend">推送</span>
     <div class="alert alert-warning text-center" role="alert">
-        应本书版权方要求，该书籍已下架。
+        應本書版權方要求，該書籍已下架。
     </div>
 {% endif %}
 {% endblock %}
@@ -181,7 +181,7 @@
                             <input type="email" class="form-control" name="mail_to" id="id_push_email" value="{{request.user_extra.kindle_email}}" placeholder="Enter email">
                         </div>
                         <p class="col-sm-12 text-center help-block">
-                        <br/>请将本站的发件人地址加入Kindle的电子邮箱列表：<strong>{{smtp_username}}</strong></strong> 
+                        <br/>請將本站的發件人地址加入Kindle的電子郵箱列表：<strong>{{smtp_username}}</strong></strong> 
                         </p>
                     </div>
                 </div>
@@ -200,7 +200,7 @@
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-                <h4 class="modal-title">从互联网同步书籍信息</h4>
+                <h4 class="modal-title">從互聯網同步書籍信息</h4>
             </div>
             <div class="modal-body" id='id_update_dialog_body'>
                 <p>正在搜索...</p>
@@ -214,7 +214,7 @@
 {% endblock %}
 
 {% block meta %}
-<meta name="Keywords" content="{{ title }} {% for format, size in sizes %}{{ format }} {% endfor %} 下载 推送 kindle" />
+<meta name="Keywords" content="{{ title }} {% for format, size in sizes %}{{ format }} {% endfor %} 下載 推送 kindle" />
 {% if book.comments %}
 <meta name="description" content=" {{ book.comments|striptags|replace("\n", "")|replace('\"', '') }}" />
 {% endif %}
