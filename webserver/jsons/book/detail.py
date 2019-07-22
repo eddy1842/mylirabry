@@ -34,7 +34,7 @@ def json_output(self, vals):
         'tags':            ' / '.join(b['tags']),
         'author_sort':     get('author_sort'),
         'publisher':       get('publisher'),
-        'comments':        get('comments',  _(u'暂无简介') ),
+        'comments':        get('comments',  _(u'暫無簡介') ),
         'series':          get('series',    None),
         'language':        get('language',  None),
         'isbn':            get('isbn',      None),
