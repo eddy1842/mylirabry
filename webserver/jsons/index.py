@@ -12,7 +12,7 @@ def book(host, b):
     if not author_sort: author_sort = _("Unknown")
 
     comments = b.get("comments", None)
-    if not comments: comments = _(u"点击浏览详情")
+    if not comments: comments = _(u"點擊瀏覽詳情")
 
     return {
             "id": b['id'],
@@ -31,7 +31,7 @@ def book(host, b):
 def json_output(self, vals):
     host = "https://" + self.request.host
     data = {
-        "title": "图书管理系统",
+        "title": "圖書管理系統",
         "random_books_count": len(vals['random_books']),
         "new_books_count": len(vals['new_books']),
         "random_books": [ book(host, b) for b in vals['random_books'] ],
